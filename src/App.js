@@ -8,11 +8,13 @@ function App() {
     const [tempo, setTempo] = useState(120);
 
     return (
-        <div className="container">
-            <TempoInput tempo={tempo} setTempo={setTempo} />
-            <BeatsPerSecond tempo={tempo} />
-            <PeriodOfBeat tempo={tempo} />
-        </div>
+        <section className="section">
+            <div className="container">
+                <TempoInput tempo={tempo} setTempo={setTempo} />
+                <BeatsPerSecond tempo={tempo} />
+                <PeriodOfBeat tempo={tempo} />
+            </div>
+        </section>
     );
 }
 

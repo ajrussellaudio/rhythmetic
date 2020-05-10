@@ -8,7 +8,7 @@ const TempoInput = ({ tempo, setTempo }) => {
     const handleButtonClick = (value) => () => setTempo(tempo + value);
 
     return (
-        <section class="section">
+        <React.Fragment>
             <label className="field-label" htmlFor="tempo">
                 Enter Tempo (BPM)
             </label>
@@ -50,7 +50,7 @@ const TempoInput = ({ tempo, setTempo }) => {
                     </button>
                 </div>
             </div>
-        </section>
+        </React.Fragment>
     );
 };
 
