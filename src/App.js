@@ -3,6 +3,7 @@ import TempoInput from './components/TempoInput';
 import BeatsPerSecond from './components/BeatsPerSecond';
 import PeriodOfBeat from './components/PeriodOfBeat';
 import './App.sass';
+import LengthInSamples from './components/LengthInSamples';
 
 function App() {
     const [tempo, setTempo] = useState(120);
@@ -13,6 +14,7 @@ function App() {
                 <TempoInput tempo={tempo} setTempo={setTempo} />
                 <BeatsPerSecond tempo={tempo} />
                 <PeriodOfBeat tempo={tempo} />
+                <LengthInSamples tempo={tempo} />
             </div>
         </section>
     );
