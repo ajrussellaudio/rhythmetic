@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rhythmetic/static/css/main.30c2219c.chunk.css",
+    "main.js": "/rhythmetic/static/js/main.2569291c.chunk.js",
+    "main.js.map": "/rhythmetic/static/js/main.2569291c.chunk.js.map",
+    "runtime-main.js": "/rhythmetic/static/js/runtime-main.f8efb6d5.js",
+    "runtime-main.js.map": "/rhythmetic/static/js/runtime-main.f8efb6d5.js.map",
+    "static/js/2.9d40f916.chunk.js": "/rhythmetic/static/js/2.9d40f916.chunk.js",
+    "static/js/2.9d40f916.chunk.js.map": "/rhythmetic/static/js/2.9d40f916.chunk.js.map",
+    "index.html": "/rhythmetic/index.html",
+    "precache-manifest.9ce46dc976c26fda9e9b02f236d1a369.js": "/rhythmetic/precache-manifest.9ce46dc976c26fda9e9b02f236d1a369.js",
+    "service-worker.js": "/rhythmetic/service-worker.js",
+    "static/css/main.30c2219c.chunk.css.map": "/rhythmetic/static/css/main.30c2219c.chunk.css.map",
+    "static/js/2.9d40f916.chunk.js.LICENSE.txt": "/rhythmetic/static/js/2.9d40f916.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f8efb6d5.js",
+    "static/js/2.9d40f916.chunk.js",
+    "static/css/main.30c2219c.chunk.css",
+    "static/js/main.2569291c.chunk.js"
+  ]
+}
