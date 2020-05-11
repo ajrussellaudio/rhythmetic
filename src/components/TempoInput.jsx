@@ -1,24 +1,27 @@
 import React from 'react';
 
 const TempoInput = ({ tempo, setTempo }) => {
-    const handleChange = (event) => {
-        setTempo(parseFloat(event.target.value));
+    const handleTempoChange = (newTempo) => {
+        setTempo(newTempo);
     };
 
-    const handleButtonClick = (value) => () => setTempo(tempo + value);
+    const handleInputChange = (event) => {
+        handleTempoChange(parseFloat(event.target.value));
+    };
+
+    const handleButtonClick = (value) => () => {
+        handleTempoChange(tempo + value);
+    };
 
     return (
         <React.Fragment>
             <label className="field-label" htmlFor="tempo">
-                Enter Tempo (BPM)
+                a tempo of
             </label>
             <div className="field has-addons">
                 <div className="control">
-                    <button
-                        className="button is-primary"
-                        onClick={handleButtonClick(-1)}
-                    >
-                        - 1
+                    <button className="button" onClick={handleButtonClick(-1)}>
+                        {'<<'}
                     </button>
                 </div>
                 <div className="control">
@@ -26,7 +29,7 @@ const TempoInput = ({ tempo, setTempo }) => {
                         className="button"
                         onClick={handleButtonClick(-0.1)}
                     >
-                        - 0.1
+                        {'<'}
                     </button>
                 </div>
                 <div className="control">
@@ -36,20 +39,20 @@ const TempoInput = ({ tempo, setTempo }) => {
                         id="tempo"
                         value={tempo.toLocaleString()}
                         step={1}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                     />
                 </div>
                 <div className="control">
+                    <button className="button is-static">bpm</button>
+                </div>
+                <div className="control">
                     <button className="button" onClick={handleButtonClick(0.1)}>
-                        + 0.1
+                        {'>'}
                     </button>
                 </div>
                 <div className="control">
-                    <button
-                        className="button is-primary"
-                        onClick={handleButtonClick(1)}
-                    >
-                        + 1
+                    <button className="button" onClick={handleButtonClick(1)}>
+                        {'>>'}
                     </button>
                 </div>
             </div>

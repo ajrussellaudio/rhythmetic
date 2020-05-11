@@ -3,6 +3,7 @@ import beatsPerSecond from '../utils/beatsPerSecond';
 
 const BeatsPerSecond = ({ tempo }) => (
     <div className="box">
+        is equal to{' '}
         <strong>
             {beatsPerSecond(tempo).toLocaleString(undefined, {
                 minimumFractionDigits: 1,

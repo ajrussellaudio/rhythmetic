@@ -33,7 +33,7 @@ const DelayTime = ({ tempo }) => {
         <div className="box">
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
-                    <label className="label">to sync a delay to</label>
+                    <label className="label">syncs to a delay of</label>
                 </div>
                 <div className="field-body">
                     <div className="field has-addons">
@@ -70,7 +70,7 @@ const DelayTime = ({ tempo }) => {
             </div>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
-                    <label className="label">set the time to</label>
+                    <label className="label">when you set the time to</label>
                 </div>
                 <div className="field-body">
                     <div className="field">

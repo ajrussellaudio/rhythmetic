@@ -15,8 +15,8 @@ function App() {
                 <TempoInput tempo={tempo} setTempo={setTempo} />
                 <BeatsPerSecond tempo={tempo} />
                 <PeriodOfBeat tempo={tempo} />
-                <LengthInSamples tempo={tempo} />
                 <DelayTime tempo={tempo} />
+                <LengthInSamples tempo={tempo} />
             </div>
         </section>
     );

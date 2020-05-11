@@ -94,7 +94,7 @@ const LengthInSamples = ({ tempo }) => {
                                 tempo,
                                 selectedSampleRate
                             ).toLocaleString(undefined, {
-                                maximumFractionDigits: 1,
+                                maximumFractionDigits: 0,
                             })} samples`}
                         />
                     </div>
