@@ -4,6 +4,8 @@ import lengthInSamples from '../utils/lengthInSamples';
 const sampleRates = [44100, 48000];
 
 const beatDivisions = [
+    { value: 0.25, label: '1/16 note' },
+    { value: 0.5, label: '1/8 note' },
     { value: 1, label: '1/4 note' },
     { value: 2, label: '1/2 note' },
     { value: 4, label: '1 bar' },
@@ -22,52 +24,82 @@ const LengthInSamples = ({ tempo }) => {
     };
 
     const handleBeatDivisionChange = (event) => {
-        setSelectedBeatDivision(event.target.value);
+        setSelectedBeatDivision(parseFloat(event.target.value));
     };
 
     return (
         <div className="box">
-            <div className="field">
-                <div className="control">
-                    <div className="select">
-                        <select
-                            value={selectedSampleRate}
-                            onChange={handleSampleRateChange}
-                        >
-                            {sampleRates.map((sampleRate) => (
-                                <option value={sampleRate} key={sampleRate}>
-                                    {sampleRate.toLocaleString()} Hz
-                                </option>
-                            ))}
-                        </select>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">at a sample rate of</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <div className="select">
+                                <select
+                                    value={selectedSampleRate}
+                                    onChange={handleSampleRateChange}
+                                >
+                                    {sampleRates.map((sampleRate) => (
+                                        <option
+                                            value={sampleRate}
+                                            key={sampleRate}
+                                        >
+                                            {sampleRate.toLocaleString()} Hz
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="field">
-                <div className="control">
-                    <div className="select">
-                        <select
-                            value={selectedBeatDivision}
-                            onChange={handleBeatDivisionChange}
-                        >
-                            {beatDivisions.map(({ label, value }) => (
-                                <option value={value} key={value}>
-                                    {label} ({value} beat
-                                    {value === 1 ? '' : 's'})
-                                </option>
-                            ))}
-                        </select>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">a length of</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <div className="select">
+                                <select
+                                    value={selectedBeatDivision}
+                                    onChange={handleBeatDivisionChange}
+                                >
+                                    {beatDivisions.map(({ label, value }) => (
+                                        <option value={value} key={value}>
+                                            {label} ({value} beat
+                                            {value === 1 ? '' : 's'})
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <strong>
-                {lengthInSamples(
-                    selectedBeatDivision,
-                    tempo,
-                    selectedSampleRate
-                ).toLocaleString(undefined, { maximumFractionDigits: 1 })}
-            </strong>{' '}
-            samples
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">is</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <input
+                            className="input"
+                            type="text"
+                            readOnly
+                            value={`${lengthInSamples(
+                                selectedBeatDivision,
+                                tempo,
+                                selectedSampleRate
+                            ).toLocaleString(undefined, {
+                                maximumFractionDigits: 1,
+                            })} samples`}
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
