@@ -1,3 +1,12 @@
+# rhythmetic
+
+A set of calculators for beatmakers, producers and electronic musicians. Given a tempo in beats per minute (BPM), rhythmetic will tell you:
+
+-   The number of beats per second
+-   The period of a single beat
+-   The length in samples of various note lengths
+-   The time in milliseconds to sync a delay line to various rhythms
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
