@@ -70,7 +70,7 @@ const DelayTime = ({ tempo }) => {
             </div>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
-                    <label className="label">when you set the time to</label>
+                    <label className="label">when the time is set to</label>
                 </div>
                 <div className="field-body">
                     <div className="field">

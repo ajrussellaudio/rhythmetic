@@ -3,7 +3,7 @@ import periodOfBeat from '../utils/periodOfBeat';
 
 const PeriodOfBeat = ({ tempo }) => (
     <div className="box">
-        a beat has a period of{' '}
+        each beat lasts{' '}
         <strong>
             {(1000 * periodOfBeat(tempo)).toLocaleString(undefined, {
                 maximumFractionDigits: 1,
