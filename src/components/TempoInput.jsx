@@ -34,10 +34,9 @@ const TempoInput = ({ tempo, setTempo }) => {
                         className="input"
                         type="number"
                         id="tempo"
-                        value={tempo.toPrecision(4)}
-                        step={0.1}
+                        value={tempo.toLocaleString()}
+                        step={1}
                         onChange={handleChange}
-                        readOnly
                     />
                 </div>
                 <div className="control">
