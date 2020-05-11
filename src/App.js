@@ -13,6 +13,11 @@ function App() {
     return (
         <React.Fragment>
             <GitHubLink />
+            <div className="hero is-light">
+                <div className="hero-body">
+                    <h1 className="title">rhythmetic</h1>
+                </div>
+            </div>
             <section className="section">
                 <div className="container">
                     <TempoInput tempo={tempo} setTempo={setTempo} />
