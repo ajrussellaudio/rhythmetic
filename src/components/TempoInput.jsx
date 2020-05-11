@@ -15,18 +15,21 @@ const TempoInput = ({ tempo, setTempo }) => {
             <div className="field has-addons">
                 <div className="control">
                     <button
-                        class="button is-primary"
+                        className="button is-primary"
                         onClick={handleButtonClick(-1)}
                     >
                         - 1
                     </button>
                 </div>
                 <div className="control">
-                    <button class="button" onClick={handleButtonClick(-0.1)}>
+                    <button
+                        className="button"
+                        onClick={handleButtonClick(-0.1)}
+                    >
                         - 0.1
                     </button>
                 </div>
-                <div class="control">
+                <div className="control">
                     <input
                         className="input"
                         type="number"
@@ -34,16 +37,17 @@ const TempoInput = ({ tempo, setTempo }) => {
                         value={tempo.toPrecision(4)}
                         step={0.1}
                         onChange={handleChange}
+                        readOnly
                     />
                 </div>
                 <div className="control">
-                    <button class="button" onClick={handleButtonClick(0.1)}>
+                    <button className="button" onClick={handleButtonClick(0.1)}>
                         + 0.1
                     </button>
                 </div>
                 <div className="control">
                     <button
-                        class="button is-primary"
+                        className="button is-primary"
                         onClick={handleButtonClick(1)}
                     >
                         + 1

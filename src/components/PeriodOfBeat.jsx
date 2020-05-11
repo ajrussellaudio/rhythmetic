@@ -3,7 +3,12 @@ import periodOfBeat from '../utils/periodOfBeat';
 
 const PeriodOfBeat = ({ tempo }) => (
     <div className="box">
-        <strong>{periodOfBeat(tempo).toPrecision(4)}</strong> seconds
+        <strong>
+            {(1000 * periodOfBeat(tempo)).toLocaleString(undefined, {
+                maximumFractionDigits: 3,
+            })}
+        </strong>{' '}
+        milliseconds per beat
     </div>
 );
 
