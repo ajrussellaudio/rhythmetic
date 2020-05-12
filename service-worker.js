@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rhythmetic/precache-manifest.b16dead9ae3861dde16672e453ab70d3.js"
+  "/rhythmetic/precache-manifest.188da9c383190dff87ba62dd23639e3c.js"
 );
 
 self.addEventListener('message', (event) => {
