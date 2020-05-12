@@ -67,10 +67,20 @@ const Transposing = ({ tempo, setTempo }) => {
                     </div>
                 </div>
             </div>
-            <div className="control">
-                <button className="button is-dark" onClick={handleButtonClick}>
-                    use this tempo
-                </button>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label" />
+                </div>
+                <div className="field-body">
+                    <div className="control">
+                        <button
+                            className="button is-dark"
+                            onClick={handleButtonClick}
+                        >
+                            use this tempo
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
