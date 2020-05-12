@@ -4,8 +4,9 @@ import BeatsPerSecond from './components/BeatsPerSecond';
 import PeriodOfBeat from './components/PeriodOfBeat';
 import LengthInSamples from './components/LengthInSamples';
 import DelayTime from './components/DelayTime';
-import './App.sass';
 import GitHubLink from './components/GitHubLink';
+import Transpose from './components/Transpose';
+import './App.sass';
 
 function App() {
     const [tempo, setTempo] = useState(120);
@@ -25,6 +26,7 @@ function App() {
                     <PeriodOfBeat tempo={tempo} />
                     <DelayTime tempo={tempo} />
                     <LengthInSamples tempo={tempo} />
+                    <Transpose tempo={tempo} setTempo={setTempo} />
                 </div>
             </section>
         </React.Fragment>
