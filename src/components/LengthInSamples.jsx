@@ -34,7 +34,7 @@ const LengthInSamples = ({ tempo }) => {
                     <label className="label">at a sample rate of</label>
                 </div>
                 <div className="field-body">
-                    <div className="field">
+                    <div className="field has-addons">
                         <div className="control">
                             <div className="select">
                                 <select
@@ -46,11 +46,14 @@ const LengthInSamples = ({ tempo }) => {
                                             value={sampleRate}
                                             key={sampleRate}
                                         >
-                                            {sampleRate.toLocaleString()} Hz
+                                            {sampleRate.toLocaleString()}
                                         </option>
                                     ))}
                                 </select>
                             </div>
+                        </div>
+                        <div className="control">
+                            <button className="button is-static">Hz</button>
                         </div>
                     </div>
                 </div>
@@ -84,19 +87,26 @@ const LengthInSamples = ({ tempo }) => {
                     <label className="label">is</label>
                 </div>
                 <div className="field-body">
-                    <div className="field">
-                        <input
-                            className="input"
-                            type="text"
-                            readOnly
-                            value={`${lengthInSamples(
-                                selectedBeatDivision,
-                                tempo,
-                                selectedSampleRate
-                            ).toLocaleString(undefined, {
-                                maximumFractionDigits: 0,
-                            })} samples`}
-                        />
+                    <div className="field has-addons">
+                        <div className="control">
+                            <input
+                                className="input"
+                                type="text"
+                                readOnly
+                                value={lengthInSamples(
+                                    selectedBeatDivision,
+                                    tempo,
+                                    selectedSampleRate
+                                ).toLocaleString(undefined, {
+                                    maximumFractionDigits: 0,
+                                })}
+                            />
+                        </div>
+                        <div className="control">
+                            <button className="button is-static">
+                                samples
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

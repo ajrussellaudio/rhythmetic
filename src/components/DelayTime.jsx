@@ -45,11 +45,14 @@ const DelayTime = ({ tempo }) => {
                                 >
                                     {delayTimes.map(({ label, beats }) => (
                                         <option value={beats} key={label}>
-                                            {label} notes
+                                            {label}
                                         </option>
                                     ))}
                                 </select>
                             </div>
+                        </div>
+                        <div className="control">
+                            <button className="button is-static">note</button>
                         </div>
                         <div className="control">
                             <div className="select">
@@ -73,19 +76,26 @@ const DelayTime = ({ tempo }) => {
                     <label className="label">when the time is set to</label>
                 </div>
                 <div className="field-body">
-                    <div className="field">
-                        <input
-                            className="input"
-                            type="text"
-                            readOnly
-                            value={`${delayTime(
-                                tempo,
-                                selectedDelayTime,
-                                selectedMultiplier
-                            ).toLocaleString(undefined, {
-                                maximumFractionDigits: 1,
-                            })} milliseconds`}
-                        />
+                    <div className="field has-addons">
+                        <div className="control">
+                            <input
+                                className="input"
+                                type="text"
+                                readOnly
+                                value={delayTime(
+                                    tempo,
+                                    selectedDelayTime,
+                                    selectedMultiplier
+                                ).toLocaleString(undefined, {
+                                    maximumFractionDigits: 1,
+                                })}
+                            />
+                        </div>
+                        <div className="control">
+                            <button className="button is-static">
+                                milliseconds
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
