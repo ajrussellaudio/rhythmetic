@@ -1,0 +1,7 @@
+.hide-on-small-device {
+    display: none;
+
+    @media screen and (min-width: 375px) {
+        display: block;
+    }
+}

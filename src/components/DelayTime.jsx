@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import delayTime from '../utils/delayTime';
+import './hideOnSmallDevice.scss';
 
 const delayTimes = [
     { beats: 4, label: '1/1' },
@@ -51,7 +52,7 @@ const DelayTime = ({ tempo }) => {
                                 </select>
                             </div>
                         </div>
-                        <div className="control">
+                        <div className="control hide-on-small-device">
                             <button className="button is-static">note</button>
                         </div>
                         <div className="control">

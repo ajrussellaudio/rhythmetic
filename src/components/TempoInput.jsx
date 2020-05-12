@@ -1,4 +1,5 @@
 import React from 'react';
+import './hideOnSmallDevice.scss';
 
 const TempoInput = ({ tempo, setTempo }) => {
     const handleTempoChange = (newTempo) => {
@@ -42,7 +43,7 @@ const TempoInput = ({ tempo, setTempo }) => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <div className="control">
+                <div className="control hide-on-small-device">
                     <button className="button is-static">bpm</button>
                 </div>
                 <div className="control">
