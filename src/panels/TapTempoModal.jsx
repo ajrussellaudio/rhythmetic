@@ -22,9 +22,8 @@ const averageTempoOfIntervals = (intervals) => {
 };
 
 const TapTempoModal = ({ close, setTempo }) => {
-    const timer = new AudioRateTimer();
     const tapTempo = new Subject();
-
+    const timer = new AudioRateTimer();
     const [tappedTempo, setTappedTempo] = useState(120.0);
 
     useEffect(() => {
@@ -39,6 +38,17 @@ const TapTempoModal = ({ close, setTempo }) => {
             )
             .subscribe();
     }, [tapTempo, timer]);
+
+    useEffect(() => {
+        const tapIfSpacebarPressed = ({ code }) => {
+            if (code === 'Space') {
+                tapTempo.next();
+            }
+        };
+        document.addEventListener('keydown', tapIfSpacebarPressed);
+        return () =>
+            document.removeEventListener('keydown', tapIfSpacebarPressed);
+    }, [tapTempo]);
 
     const handleRoundClick = () => {
         setTappedTempo(Math.round(tappedTempo));
@@ -62,13 +72,21 @@ const TapTempoModal = ({ close, setTempo }) => {
                     ></button>
                 </header>
                 <section className="modal-card-body">
-                    <div className="field">
+                    <div className="field has-addons">
                         <div className="control">
                             <button
                                 className="button is-large is-dark"
                                 onClick={() => tapTempo.next()}
                             >
                                 tap
+                            </button>
+                        </div>
+                        <div className="control">
+                            <button
+                                className="button is-large is-static"
+                                onClick={() => tapTempo.next()}
+                            >
+                                or press space
                             </button>
                         </div>
                     </div>
