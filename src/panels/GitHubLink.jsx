@@ -1,5 +1,5 @@
 import React from 'react';
-import './GitHubLink.scss';
+import '../scss/GitHubLink.scss';
 
 const GitHubLink = () => (
     <div className="github-link">

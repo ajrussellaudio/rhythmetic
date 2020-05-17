@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import delayTime from '../utils/delayTime';
-import './hideOnSmallDevice.scss';
+import '../scss/hideOnSmallDevice.scss';
 import Output from '../components/Output';
 
 const delayTimes = [
@@ -32,7 +32,7 @@ const DelayTime = ({ tempo }) => {
     };
 
     return (
-        <div className="box">
+        <React.Fragment>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">syncs to a delay of</label>
@@ -84,7 +84,7 @@ const DelayTime = ({ tempo }) => {
                     maximumFractionDigits: 1,
                 })}
             />
-        </div>
+        </React.Fragment>
     );
 };
 

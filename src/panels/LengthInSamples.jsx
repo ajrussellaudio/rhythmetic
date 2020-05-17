@@ -29,7 +29,7 @@ const LengthInSamples = ({ tempo }) => {
     };
 
     return (
-        <div className="box">
+        <React.Fragment>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">at a sample rate of</label>
@@ -94,7 +94,7 @@ const LengthInSamples = ({ tempo }) => {
                     maximumFractionDigits: 0,
                 })}
             />
-        </div>
+        </React.Fragment>
     );
 };
 

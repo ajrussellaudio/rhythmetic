@@ -20,7 +20,7 @@ const Transposing = ({ tempo, setTempo }) => {
     };
 
     return (
-        <div className="box">
+        <React.Fragment>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">transposing by</label>
@@ -65,7 +65,7 @@ const Transposing = ({ tempo, setTempo }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 
