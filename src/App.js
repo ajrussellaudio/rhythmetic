@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TempoInput from './components/TempoInput';
 import BeatsPerSecond from './panels/BeatsPerSecond';
 import PeriodOfBeat from './panels/PeriodOfBeat';
 import LengthInSamples from './panels/LengthInSamples';
@@ -8,14 +7,15 @@ import GitHubLink from './panels/GitHubLink';
 import Transpose from './panels/Transpose';
 import './App.sass';
 import TransposeToTempo from './panels/TransposeToTempo';
+import MasterTempo from './panels/MasterTempo';
 
 const SplitWithLines = ({ children }) => {
     return (
         <div className="container">
             {children.map((child) => (
-                <React.Fragment>
-                    {child}
+                <React.Fragment key={child.type.name}>
                     <hr />
+                    {child}
                 </React.Fragment>
             ))}
         </div>
@@ -34,12 +34,8 @@ function App() {
                 </div>
             </div>
             <section className="section">
+                <MasterTempo tempo={tempo} setTempo={setTempo} />
                 <SplitWithLines>
-                    <TempoInput
-                        tempo={tempo}
-                        setTempo={setTempo}
-                        label="a tempo of"
-                    />
                     <BeatsPerSecond tempo={tempo} />
                     <PeriodOfBeat tempo={tempo} />
                     <DelayTime tempo={tempo} />
