@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import delayTime from '../utils/delayTime';
 import './hideOnSmallDevice.scss';
+import Output from '../components/Output';
 
 const delayTimes = [
     { beats: 4, label: '1/1' },
@@ -72,34 +73,17 @@ const DelayTime = ({ tempo }) => {
                     </div>
                 </div>
             </div>
-            <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                    <label className="label">when the time is set to</label>
-                </div>
-                <div className="field-body">
-                    <div className="field has-addons">
-                        <div className="control">
-                            <input
-                                className="input"
-                                type="text"
-                                readOnly
-                                value={delayTime(
-                                    tempo,
-                                    selectedDelayTime,
-                                    selectedMultiplier
-                                ).toLocaleString(undefined, {
-                                    maximumFractionDigits: 1,
-                                })}
-                            />
-                        </div>
-                        <div className="control">
-                            <button className="button is-static">
-                                milliseconds
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Output
+                label="when the time is set to"
+                units="millseconds"
+                value={delayTime(
+                    tempo,
+                    selectedDelayTime,
+                    selectedMultiplier
+                ).toLocaleString(undefined, {
+                    maximumFractionDigits: 1,
+                })}
+            />
         </div>
     );
 };

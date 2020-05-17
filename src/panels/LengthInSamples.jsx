@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import lengthInSamples from '../utils/lengthInSamples';
+import Output from '../components/Output';
 
 const sampleRates = [44100, 48000];
 
@@ -82,34 +83,17 @@ const LengthInSamples = ({ tempo }) => {
                     </div>
                 </div>
             </div>
-            <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                    <label className="label">is</label>
-                </div>
-                <div className="field-body">
-                    <div className="field has-addons">
-                        <div className="control">
-                            <input
-                                className="input"
-                                type="text"
-                                readOnly
-                                value={lengthInSamples(
-                                    selectedBeatDivision,
-                                    tempo,
-                                    selectedSampleRate
-                                ).toLocaleString(undefined, {
-                                    maximumFractionDigits: 0,
-                                })}
-                            />
-                        </div>
-                        <div className="control">
-                            <button className="button is-static">
-                                samples
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Output
+                label="is"
+                units="samples"
+                value={lengthInSamples(
+                    selectedBeatDivision,
+                    tempo,
+                    selectedSampleRate
+                ).toLocaleString(undefined, {
+                    maximumFractionDigits: 0,
+                })}
+            />
         </div>
     );
 };

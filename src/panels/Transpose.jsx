@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import transpose from '../utils/transpose';
+import Output from '../components/Output';
 
 const Transposing = ({ tempo, setTempo }) => {
     const [semitones, setSemitones] = useState(0);
@@ -42,31 +43,13 @@ const Transposing = ({ tempo, setTempo }) => {
                     </div>
                 </div>
             </div>
-            <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                    <label className="label">makes the tempo</label>
-                </div>
-                <div className="field-body">
-                    <div className="field has-addons">
-                        <div className="control">
-                            <input
-                                className="input"
-                                type="text"
-                                value={transposedTempo.toLocaleString(
-                                    undefined,
-                                    {
-                                        maximumFractionDigits: 3,
-                                    }
-                                )}
-                                readOnly
-                            />
-                        </div>
-                        <div className="control">
-                            <button className="button is-static">bpm</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Output
+                label="makes the tempo"
+                units="bpm"
+                value={transposedTempo.toLocaleString(undefined, {
+                    maximumFractionDigits: 3,
+                })}
+            />
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label" />
