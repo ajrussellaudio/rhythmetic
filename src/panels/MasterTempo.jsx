@@ -23,7 +23,9 @@ const MasterTempo = ({ tempo, setTempo }) => {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <TapTempoModal close={closeModal} />}
+            {isModalOpen && (
+                <TapTempoModal close={closeModal} setTempo={setTempo} />
+            )}
         </React.Fragment>
     );
 };

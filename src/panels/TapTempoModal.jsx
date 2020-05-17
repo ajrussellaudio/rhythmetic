@@ -1,25 +1,53 @@
-import React, { useEffect } from 'react';
-import { fromEvent, Subject } from 'rxjs';
-import { timeInterval, tap } from 'rxjs/operators';
+import React, { useState, useEffect } from 'react';
+import { Subject } from 'rxjs';
+import {
+    timeInterval,
+    tap,
+    bufferCount,
+    pluck,
+    skip,
+    map,
+} from 'rxjs/operators';
+import AudioRateTimer from '../utils/AudioRateTimer';
+
 import '../scss/centered.scss';
 
-class AudioRateTimer {
-    constructor() {
-        this.context = new AudioContext();
-    }
+const averageTempoOfIntervals = (intervals) => {
+    const totalInterval = intervals.reduce(
+        (sum, interval) => sum + interval,
+        0
+    );
+    const averageInterval = totalInterval / intervals.length;
+    return 60 / averageInterval;
+};
 
-    now = () => {
-        return this.context.currentTime;
-    };
-}
-
-const TapTempoModal = ({ close }) => {
+const TapTempoModal = ({ close, setTempo }) => {
     const timer = new AudioRateTimer();
     const tapTempo = new Subject();
 
+    const [tappedTempo, setTappedTempo] = useState(120.0);
+
     useEffect(() => {
-        tapTempo.pipe(timeInterval(timer), tap(console.log)).subscribe();
-    }, []);
+        tapTempo
+            .pipe(
+                timeInterval(timer),
+                skip(1),
+                pluck('interval'),
+                bufferCount(3),
+                map(averageTempoOfIntervals),
+                tap(setTappedTempo)
+            )
+            .subscribe();
+    }, [tapTempo, timer]);
+
+    const handleRoundClick = () => {
+        setTappedTempo(Math.round(tappedTempo));
+    };
+
+    const handleUseClick = () => {
+        setTempo(tappedTempo);
+        close();
+    };
 
     return (
         <div className="modal is-active">
@@ -33,16 +61,46 @@ const TapTempoModal = ({ close }) => {
                         onClick={close}
                     ></button>
                 </header>
-                <section className="modal-card-body centered">
-                    <button
-                        className="button is-large"
-                        onClick={() => tapTempo.next()}
-                    >
-                        tap
-                    </button>
+                <section className="modal-card-body">
+                    <div className="field">
+                        <div className="control">
+                            <button
+                                className="button is-large is-dark"
+                                onClick={() => tapTempo.next()}
+                            >
+                                tap
+                            </button>
+                        </div>
+                    </div>
+                    <div className="field has-addons">
+                        <div className="control">
+                            <input
+                                type="text"
+                                value={tappedTempo.toLocaleString(undefined, {
+                                    minimumFractionDigits: 1,
+                                    maximumFractionDigits: 3,
+                                })}
+                                className="input"
+                                readOnly
+                            />
+                        </div>
+                        <div className="control">
+                            <button className="button is-static">bpm</button>
+                        </div>
+                        <div className="control">
+                            <button
+                                className="button is-dark"
+                                onClick={handleRoundClick}
+                            >
+                                round
+                            </button>
+                        </div>
+                    </div>
                 </section>
                 <footer className="modal-card-foot">
-                    <button className="button">save</button>
+                    <button className="button" onClick={handleUseClick}>
+                        use
+                    </button>
                     <button className="button" onClick={close}>
                         cancel
                     </button>
