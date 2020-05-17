@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import TempoInput from './components/TempoInput';
-import BeatsPerSecond from './components/BeatsPerSecond';
-import PeriodOfBeat from './components/PeriodOfBeat';
-import LengthInSamples from './components/LengthInSamples';
-import DelayTime from './components/DelayTime';
-import GitHubLink from './components/GitHubLink';
-import Transpose from './components/Transpose';
+import TempoInput from './panels/TempoInput';
+import BeatsPerSecond from './panels/BeatsPerSecond';
+import PeriodOfBeat from './panels/PeriodOfBeat';
+import LengthInSamples from './panels/LengthInSamples';
+import DelayTime from './panels/DelayTime';
+import GitHubLink from './panels/GitHubLink';
+import Transpose from './panels/Transpose';
 import './App.sass';
 
 function App() {
