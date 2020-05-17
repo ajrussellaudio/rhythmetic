@@ -28,7 +28,7 @@ const Transposing = ({ tempo, setTempo }) => {
                     <div className="field has-addons">
                         <div className="control">
                             <input
-                                class="input"
+                                className="input"
                                 type="number"
                                 value={semitones}
                                 onChange={handleSemitonesChange}
@@ -50,7 +50,7 @@ const Transposing = ({ tempo, setTempo }) => {
                     <div className="field has-addons">
                         <div className="control">
                             <input
-                                class="input"
+                                className="input"
                                 type="text"
                                 value={transposedTempo.toLocaleString(
                                     undefined,
