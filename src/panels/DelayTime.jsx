@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import delayTime from '../utils/delayTime';
 import '../scss/hideOnSmallDevice.scss';
 import Output from '../components/Output';
+import { inMilliseconds } from '../constants/displayUnits';
 
 const delayTimes = [
     { beats: 4, label: '1/1' },
@@ -74,15 +75,11 @@ const DelayTime = ({ tempo }) => {
                 </div>
             </div>
             <Output
-                label="when the time is set to"
-                units="millseconds"
-                value={delayTime(
-                    tempo,
-                    selectedDelayTime,
-                    selectedMultiplier
-                ).toLocaleString(undefined, {
-                    maximumFractionDigits: 1,
-                })}
+                label="when the delay time is"
+                units="milliseconds"
+                value={inMilliseconds(
+                    delayTime(tempo, selectedDelayTime, selectedMultiplier)
+                )}
             />
         </React.Fragment>
     );

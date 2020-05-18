@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Output from '../components/Output';
 import TempoInput from '../components/TempoInput';
 import transposeToTempo from '../utils/transposeToTempo';
+import { inSemitones } from '../constants/displayUnits';
 
 const TransposeToTempo = ({ tempo, setTempo }) => {
     const [desiredTempo, setDesiredTempo] = useState(tempo);
@@ -10,13 +11,7 @@ const TransposeToTempo = ({ tempo, setTempo }) => {
         setTempo(desiredTempo);
     };
 
-    const semitones = transposeToTempo(tempo, desiredTempo).toLocaleString(
-        undefined,
-        {
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 4,
-        }
-    );
+    const semitones = inSemitones(transposeToTempo(tempo, desiredTempo));
 
     return (
         <React.Fragment>

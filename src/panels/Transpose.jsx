@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import transpose from '../utils/transpose';
 import Output from '../components/Output';
+import { inBPM, inSemitones } from '../constants/displayUnits';
 
 const Transposing = ({ tempo, setTempo }) => {
     const [semitones, setSemitones] = useState(0);
@@ -31,7 +32,7 @@ const Transposing = ({ tempo, setTempo }) => {
                             <input
                                 className="input"
                                 type="number"
-                                value={semitones}
+                                value={inSemitones(semitones)}
                                 onChange={handleSemitonesChange}
                             />
                         </div>
@@ -46,9 +47,7 @@ const Transposing = ({ tempo, setTempo }) => {
             <Output
                 label="makes the tempo"
                 units="bpm"
-                value={transposedTempo.toLocaleString(undefined, {
-                    maximumFractionDigits: 3,
-                })}
+                value={inBPM(transposedTempo)}
             />
             <div className="field is-horizontal">
                 <div className="field-label is-normal">

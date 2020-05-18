@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import lengthInSamples from '../utils/lengthInSamples';
 import Output from '../components/Output';
+import { inHz, inSamples } from '../constants/displayUnits';
 
 const sampleRates = [44100, 48000];
 
@@ -47,7 +48,7 @@ const LengthInSamples = ({ tempo }) => {
                                             value={sampleRate}
                                             key={sampleRate}
                                         >
-                                            {sampleRate.toLocaleString()}
+                                            {inHz(sampleRate)}
                                         </option>
                                     ))}
                                 </select>
@@ -86,13 +87,13 @@ const LengthInSamples = ({ tempo }) => {
             <Output
                 label="is"
                 units="samples"
-                value={lengthInSamples(
-                    selectedBeatDivision,
-                    tempo,
-                    selectedSampleRate
-                ).toLocaleString(undefined, {
-                    maximumFractionDigits: 0,
-                })}
+                value={inSamples(
+                    lengthInSamples(
+                        selectedBeatDivision,
+                        tempo,
+                        selectedSampleRate
+                    )
+                )}
             />
         </React.Fragment>
     );

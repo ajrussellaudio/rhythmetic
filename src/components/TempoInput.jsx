@@ -1,5 +1,6 @@
 import React from 'react';
 import '../scss/hideOnSmallDevice.scss';
+import { inBPM } from '../constants/displayUnits';
 
 const TempoInput = ({ tempo, setTempo, label }) => {
     const handleTempoChange = (newTempo) => {
@@ -44,7 +45,7 @@ const TempoInput = ({ tempo, setTempo, label }) => {
                             className="input"
                             type="number"
                             id="tempo"
-                            value={tempo.toLocaleString()}
+                            value={inBPM(tempo)}
                             step={1}
                             onChange={handleInputChange}
                         />
